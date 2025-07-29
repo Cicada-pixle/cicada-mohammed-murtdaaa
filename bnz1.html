@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Youtube</title>
+
+<script>
+  function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
+
+   
+</script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo {
+      font-size: 24px;
+      color: red;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      flex-grow: 1;
+      margin: 0 20px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+    }
+
+    .user-icon {
+      width: 32px;
+      height: 32px;
+      background-color: #aaa;
+      border-radius: 50%;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #fff;
+      position: fixed;
+      top: 56px;
+      bottom: 0;
+      left: 0;
+      border-right: 1px solid #ccc;
+      padding: 16px 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #eee;
+    }
+
+    .main {
+      margin-left: 200px;
+      padding: 16px;
+      margin-top: 56px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .video-card {
+      background-color: white;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .video-info {
+      padding: 10px;
+    }
+
+    .video-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .video-channel {
+      font-size: 12px;
+      color: #777;
+    }
+    .dark-mode {
+  background-color: #181818;
+  color: white;
+}
+
+.dark-mode header,
+.dark-mode .sidebar,
+.dark-mode .video-card {
+  background-color: #202020;
+  color: white;
+}
+
+.dark-mode .search-bar input {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+}
+  </style>
+</head>
+
+   
+<body>
+    
+   <audio id="home-audio" src="Amr_Diab_Makanak_Fe_Alby_Official_Lyric_Video_كلمات_عمرو.mp3"></audio>
+<h6> desinged by Cicada</h6>
+  <header>
+    <button onclick="toggleDarkMode()" style="position:fixed; top:60px; right:20px; z-index:1000;">
+  Toggle Dark Mode
+</button>
+    <div class="logo">YouTube</div>
+ <form class="search-bar" onsubmit="handleSearch(event)">
+   <input type="text" id="search-input" placeholder="Search videos..." oninput="searchVideos()">
+</form>
+    <div class="user-icon"></div>
+  </header>
+
+  <div class="sidebar">
+    <a href="#" onclick="playHomeAudio()">Home</a>
+    <a href="#" onclick="playHomeAudio()">Trending</a>
+     <a href="#" onclick="playHomeAudio()">Subscriptions</a>
+    <a href="#" onclick="playHomeAudio()">Library</a>
+    <a href="#" onclick="playHomeAudio()">History</a>
+  </div>
+
+
+<!-- Video Card 1 -->
+  <div class="main">
+    <div class="video-grid">
+      <div class="video-card">
+        <img class="thumbnail" src="تملي معاك.jpg" alt="Video Thumbnail">
+        <div class="video-info"> <button onclick="likeVideo(this)">👍 Like <span class="like-count">0</span></button>
+          <div class="video-title"> الانيق| برنامج جديد يعرض على الشرقية مع مضيفكم الكبير (الجبير الله) </div>
+          <div class="video-channel">الشرقية</div>
+        </div>
+      </div>
+<!-- Video Card 2 -->
+      <div class="video-card">
+        <img class="thumbnail" src="4.jpg" alt="Video Thumbnail">
+        <div class="video-info"> <button onclick="likeVideo(this)">👍 Like <span class="like-count">0</span></button>
+          <div class="video-title">الحدث | شاهد رد البلوكر سرمد البغدادي على منتقديه في منصة اكس</div>
+          <div class="video-channel">الحدث الاخبارية</div>
+        </div>
+      </div>
+<!-- Video Card 3 -->
+      <div class="video-card">
+        <img class="thumbnail" src="تملي معاك (1).jpg" alt="Video Thumbnail">
+        <div class="video-info"><button onclick="likeVideo(this)">👍 Like <span class="like-count">0</span></button>
+          <div class="video-title">مقطع مسرب من مستشفى الشماعية للامراض النفسية والمنغولية والمارونية
+            مقطع صوره احد المرضى المخابيل
+          </div>
+          <div class="video-channel">العراق اليوم</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <script>
+    // Functional search
+    function searchVideos() {
+      const query = document.getElementById("search-input").value.toLowerCase();
+      const videos = document.querySelectorAll(".video-card");
+
+      videos.forEach(video => {
+        const title = video.querySelector(".video-title").textContent.toLowerCase();
+        if (title.includes(query)) {
+          video.style.display = "block";
+        } else {
+          video.style.display = "none";
+        }
+      });
+    }
+
+    // Like button function
+    function likeVideo(button) {
+      const countSpan = button.querySelector(".like-count");
+      let count = parseInt(countSpan.textContent);
+      countSpan.textContent = count + 1;
+    }
+    function playHomeAudio() {
+  const audio = document.getElementById("home-audio");
+  audio.play();
+}
+    </script>
+
+    
+</body>
+
+</html>
