@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Everyone is under my control</title>
+  <style>
+    :root {
+      --bg-color: #fafafa;
+      --text-color: #262626;
+      --card-color: #ffffff;
+      --border-color: #dbdbdb;
+      --accent: #c13584;
+    }
+
+    body.dark-mode {
+      --bg-color: #000;
+      --text-color: #efefef;
+      --card-color: #121212;
+      --border-color: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: var(--card-color);
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .toggle-dark {
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: background 0.3s;
+    }
+
+    .toggle-dark:hover {
+      background: var(--border-color);
+    }
+
+    .stories {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px;
+      background: var(--card-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .story-button {
+      all: unset;
+      cursor: pointer;
+      margin-right: 15px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-color);
+    }
+
+    .story-button img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      padding: 2px;
+      margin-bottom: 5px;
+    }
+
+    .story-button p {
+      white-space: nowrap;
+    }
+
+    .feed {
+      max-width: 600px;
+      margin: 20px auto;
+      background: var(--card-color);
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .post-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post-header span {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .post-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .post-actions {
+      padding: 10px;
+      display: flex;
+      gap: 15px;
+      font-size: 22px;
+    }
+
+    .post-caption {
+      padding: 0 10px 10px;
+    }
+  </style>
+</head>
+<audio id="clickSound" src="بغيت و كاع ما حسيت - Zouhair Bahaoui - Topic.mp3"></audio>
+
+<body>
+
+ 
+
+<header>
+  <h1>Instagram</h1>
+  <button class="toggle-dark" onclick="toggleDarkMode()">🌙 Dark</button>
+</header>
+
+  
+<section class="stories">
+    <!-- First button: opens a website -->
+    <button class="story-button" onclick="window.location.href='https://cicada-pixle.github.io/cicada-mohammed-murtdaaa/bnz12.html';">
+        <img src="796EBD4B-BE6D-4FA3-A08F-4FA00A8EA803.jpg" alt="دوس-علي"/>
+        <p>دوس-علي</p>
+    </button>
+
+    <!-- Second button: plays music ONLY -->
+    <button class="story-button" onclick="playMusic()">
+        <img src="Screenshot 2025-08-04 225836.png" alt="user2"/>
+        <p>Designed by Cicada [click me]</p>
+    </button><audio id="cicadaAudio" src="بغيت و كاع ما حسيت - Zouhair Bahaoui - Topic.mp3"></audio>
+
+    <!-- Third button: opens a different website -->
+    <button class="story-button" onclick="window.location.href='https://bitly.cx/ilouu';">
+        <img src="Screenshot 2025-08-05 002902.png" alt="دوس-علي"/>
+        <p>abu-roqia.old [click-me]</p>
+    </button>
+    <button class="story-button" onclick="window.location.href='https://echoishh.github.io/echoish/project_for_client41.html';">
+        <img src="abbas.png" alt="دوس-علي"/>
+        <p>Abbas [click-me]</p>
+    </button>
+</section>
+
+<!-- Add this somewhere in your page (usually near bottom) -->
+
+
+<script>
+function playMusic() {
+    const audio = document.getElementById('cicadaAudio');
+    audio.play();
+}
+</script>
+
+
+<section class="feed">
+  <div class="post-header">
+    <img src="Screenshot 2025-08-05 002902.png" alt="poster"/>
+    <span>Abu-Roqia</span>
+  </div>
+  <img class="post-img" src="Screenshot 2025-08-05 003016.png" alt="post image"/>
+  <div class="post-actions">
+    ❤️38183 🗨️3913 🔄5m+
+  </div>
+  <div class="post-caption">
+    <strong>Abu-Roqia</strong> Me in the beach
+    all thanks to Cicada #Vibes
+  </div>
+</section>
+
+<script>
+  function openStory(username) {
+    alert('Opening story for ' + username);
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    const btn = document.querySelector('.toggle-dark');
+    if (document.body.classList.contains("dark-mode")) {
+      btn.textContent = "☀️ Light";
+    } else {
+      btn.textContent = "🌙 Dark";
+    }
+  }
+</script>
+<script>
+function openStory() {
+    // Play the music
+    const audio = document.getElementById('clickSound');
+    audio.play();
+
+    // Wait a short moment then open the link
+    setTimeout(() => {
+        window.location.href = 'https://cicada-pixle.github.io/cicada-mohammed-murtdaaa/bnz12.html';
+    }, 500); // delay in ms (adjust based on your audio)
+}
+</script>
+
+</body>
+</html>
